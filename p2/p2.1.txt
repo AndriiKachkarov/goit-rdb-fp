@@ -1,0 +1,7 @@
+USE pandemic;
+
+CREATE TABLE entities (
+    entity_id INT AUTO_INCREMENT PRIMARY KEY,
+    entity_name VARCHAR(255) NOT NULL,
+    entity_code VARCHAR(10)
+);

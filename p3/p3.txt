@@ -1,0 +1,18 @@
+USE pandemic;
+
+SELECT 
+    e.entity_name,
+    e.entity_code,
+    AVG(c.Number_rabies) AS avg_rabies,
+    MIN(c.Number_rabies) AS min_rabies,
+    MAX(c.Number_rabies) AS max_rabies,
+    SUM(c.Number_rabies) AS total_rabies
+FROM cases_data c
+JOIN entities e ON c.entity_id = e.entity_id
+
+WHERE c.Number_rabies IS NOT NULL AND c.Number_rabies <> ''
+GROUP BY e.entity_id
+
+ORDER BY avg_rabies DESC
+
+LIMIT 10;

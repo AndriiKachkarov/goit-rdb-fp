@@ -1,0 +1,11 @@
+USE pandemic;
+
+SELECT 
+    Year,
+
+    STR_TO_DATE(CONCAT(Year, '-01-01'), '%Y-%m-%d') AS start_of_year_date,
+
+    CURDATE() AS today_date,
+
+    TIMESTAMPDIFF(YEAR, STR_TO_DATE(CONCAT(Year, '-01-01'), '%Y-%m-%d'), CURDATE()) AS year_difference
+FROM cases_data;
